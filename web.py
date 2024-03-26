@@ -1,47 +1,17 @@
-# EX01 Developing a Simple Webserver
-## Date:26/03/2024
-
-## AIM:
-To develop a simple webserver to serve html pages.
-
-## DESIGN STEPS:
-### Step 1: 
-HTML content creation.
-
-### Step 2:
-Design of webserver workflow.
-
-### Step 3:
-Implementation using Python code.
-
-### Step 4:
-Serving the HTML pages.
-
-### Step 5:
-Testing the webserver.
-
-## PROGRAM:
-```
 from http.server import HTTPServer, BaseHTTPRequestHandler
 
-content = """
+# Corrected HTML content
+content = '''
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0 ">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <div >
-        <nav class="navbar bg-body-tertiary" >
-            <div class="container-fluid" style="background-color: aquamarine;">
-              <a class="navbar-brand">Menu
-                <ul style="text-decoration: none;">
-                  <li>Home</li>
-                  <li>Contact Us</li>
-                  <li>Help</li>
-                </ul>
-              </a>
-              
+    <div>
+        <nav class="navbar bg-body-tertiary">
+            <div class="container-fluid">
+              <a class="navbar-brand">Menu</a>
               <form class="d-flex" role="search">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success" type="submit">Search</button>
@@ -84,26 +54,26 @@ content = """
       </div>
       <div class="card-group">
         <div class="card">
-          <img src="img4c.jpeg" class="card-img-top" alt="...">
+          <img src="..." class="card-img-top" alt="...">
           <div class="card-body">
-            <h5 class="card-title">SOUNDBARS</h5>
+            <h5 class="card-title">Card title</h5>
             <p class="card-text">Best Soundbar Deals under Rs. 5,000 to Check Before Flikart's Great Tamil New Year Sale Ends Tonight</p>
             <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
           </div>
         </div>
         <div class="card">
-          <img src="img6c.jpeg" class="card-img-top" alt="...">
+          <img src="..." class="card-img-top" alt="...">
           <div class="card-body">
-            <h5 class="card-title">Tv</h5>
+            <h5 class="card-title">Card title</h5>
             <p class="card-text">Flipkart Great Tamil New Year Day Sale 2024: Best Smart TV Deals Under Rs. 20,000</p>
             <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
           </div>
         </div>
         <div class="card">
-          <img src="img5c.jpeg" class="card-img-top" alt="...">
+          <img src="..." class="card-img-top" alt="...">
           <div class="card-body">
-            <h5 class="card-title">Mobiles</h5>
-            <p class="card-text">Best Mobiles Under Rs. 50,000 on the Last Day of Flipkart Big Billion Days!</p>
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Best Mobiles Under Rs. 50,000 on the Last Day of Flipkart Great Tamil New Year Sale</p>
             <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
           </div>
         </div>
@@ -112,11 +82,12 @@ content = """
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
-"""
+
+'''
 
 class MyHandler(BaseHTTPRequestHandler):
     def do_GET(self):
-        print("request received")
+        print("Request received")
         self.send_response(200)
         self.send_header('Content-type', 'text/html; charset=utf-8')
         self.end_headers()
@@ -125,12 +96,5 @@ class MyHandler(BaseHTTPRequestHandler):
 server_address = ('', 8000)
 httpd = HTTPServer(server_address, MyHandler)
 
-print("my webserver is running...")
+print("My webserver is running...")
 httpd.serve_forever()
-```
-
-## OUTPUT:
-![alt text](Output.png)
-
-## RESULT:
-The program for implementing simple webserver is executed successfully.
